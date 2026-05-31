@@ -1,9 +1,3 @@
-/*
- * Design Philosophy: Forest Emerald & Champagne Gold (이에스조경 ESG 리뉴얼)
- * Combining Brand Colors (Construction Green, Fresh Leaf, Deep Navy) with Premium Champagne Gold.
- * Creating a rich, organic, and prestigious eco-friendly aesthetic.
- */
-
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -41,78 +35,89 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Custom Luxury Fonts & Transitions */
-  --font-serif: "Cinzel", "Playfair Display", "Georgia", serif;
-  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --ease-out-luxury: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  /* Rich Forest Dark Background (with deep emerald green and navy undertones) */
-  --background: oklch(0.15 0.04 160); /* Deep Forest Green Dark */
-  --foreground: oklch(0.96 0.01 160);
+  /* Brand Identity Colors (Leaf Grid A-An) */
+  /* Construction Green: #1F7A3A -> oklch(0.48 0.15 142) */
+  /* Fresh Leaf: #7BC043 -> oklch(0.72 0.18 120) */
+  /* Deep Navy: #173B57 -> oklch(0.28 0.08 245) */
+  /* Earth Gray: #6B6B5F -> oklch(0.48 0.01 100) */
+  /* Warm Light Gray/Beige Background: #F5F6F0 -> oklch(0.96 0.005 105) */
+
+  --primary: oklch(0.48 0.15 142); /* Construction Green */
+  --primary-foreground: oklch(0.99 0.002 100);
   
-  /* Brand Green (Construction Green / Emerald) */
-  --primary: oklch(0.48 0.16 150); /* Vivid Emerald Green */
-  --primary-foreground: oklch(0.98 0.01 160);
-  
-  /* Champagne Gold (from brand assets) */
-  --secondary: oklch(0.82 0.11 85); /* Radiant Champagne Gold */
-  --secondary-foreground: oklch(0.12 0.02 160);
-  
-  /* Cards & Surfaces with rich translucent forest glassmorphic look */
-  --card: oklch(0.18 0.03 160 / 90%);
-  --card-foreground: oklch(0.96 0.01 160);
-  
-  --popover: oklch(0.18 0.03 160);
-  --popover-foreground: oklch(0.96 0.01 160);
-  
-  --muted: oklch(0.24 0.02 160);
-  --muted-foreground: oklch(0.72 0.02 160);
-  
-  /* Accent: Brand Fresh Leaf (싱그러운 연두색) */
-  --accent: oklch(0.68 0.18 135); /* Fresh Leaf Green */
-  --accent-foreground: oklch(0.15 0.04 160);
-  
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 160);
-  
-  /* Border & Input: Thin elegant lines with soft green glow */
-  --border: oklch(0.28 0.04 150 / 50%);
-  --input: oklch(0.24 0.03 150 / 70%);
-  --ring: oklch(0.82 0.11 85); /* Gold ring */
-  
+  --secondary: oklch(0.72 0.18 120); /* Fresh Leaf */
+  --secondary-foreground: oklch(0.2 0.05 140);
+
+  --background: oklch(0.99 0.002 100); /* Pure White */
+  --foreground: oklch(0.28 0.08 245); /* Deep Navy for maximum legibility */
+
+  --card: oklch(0.96 0.005 105); /* Warm Light Gray/Beige (#F5F6F0) */
+  --card-foreground: oklch(0.28 0.08 245);
+
+  --popover: oklch(0.99 0.002 100);
+  --popover-foreground: oklch(0.28 0.08 245);
+
+  --muted: oklch(0.94 0.005 105);
+  --muted-foreground: oklch(0.48 0.01 100); /* Earth Gray */
+
+  --accent: oklch(0.91 0.03 125); /* Light pastel green accent */
+  --accent-foreground: oklch(0.28 0.08 245);
+
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(0.99 0.002 100);
+
+  --border: oklch(0.88 0.005 105);
+  --input: oklch(0.88 0.005 105);
+  --ring: oklch(0.48 0.15 142);
+
   --radius: 0.75rem;
+
+  --sidebar: oklch(0.96 0.005 105);
+  --sidebar-foreground: oklch(0.28 0.08 245);
+  --sidebar-accent: oklch(0.91 0.03 125);
+  --sidebar-accent-foreground: oklch(0.28 0.08 245);
+  --sidebar-border: oklch(0.88 0.005 105);
+  --sidebar-ring: oklch(0.48 0.15 142);
 }
 
-/* Force Dark Theme as default to preserve high-end visual contrast */
+/* We force a clean light mode experience, no dark class overrides */
 .dark {
-  --background: oklch(0.15 0.04 160);
-  --foreground: oklch(0.96 0.01 160);
+  --primary: oklch(0.48 0.15 142);
+  --primary-foreground: oklch(0.99 0.002 100);
+  --secondary: oklch(0.72 0.18 120);
+  --secondary-foreground: oklch(0.2 0.05 140);
+  --background: oklch(0.99 0.002 100);
+  --foreground: oklch(0.28 0.08 245);
+  --card: oklch(0.96 0.005 105);
+  --card-foreground: oklch(0.28 0.08 245);
+  --popover: oklch(0.99 0.002 100);
+  --popover-foreground: oklch(0.28 0.08 245);
+  --muted: oklch(0.94 0.005 105);
+  --muted-foreground: oklch(0.48 0.01 100);
+  --accent: oklch(0.91 0.03 125);
+  --accent-foreground: oklch(0.28 0.08 245);
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(0.99 0.002 100);
+  --border: oklch(0.88 0.005 105);
+  --input: oklch(0.88 0.005 105);
+  --ring: oklch(0.48 0.15 142);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 transition-colors duration-200;
+    @apply border-border outline-ring/30;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-secondary/30 selection:text-secondary;
-    /* Soft ambient lighting representing sunrays filtering through a deep forest */
-    background-image: 
-      radial-gradient(at 0% 0%, oklch(0.55 0.18 140 / 12%) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, oklch(0.82 0.11 85 / 8%) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, oklch(0.20 0.05 200 / 10%) 0px, transparent 70%);
-    background-attachment: fixed;
-  }
-  
-  /* Smooth Scroll */
-  html {
-    scroll-behavior: smooth;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
 @layer components {
+  /* Premium Light Container */
   .container {
     width: 100%;
     margin-left: auto;
@@ -137,47 +142,26 @@
     .container {
       padding-left: 3rem;
       padding-right: 3rem;
-      max-width: 1400px;
+      max-width: 1280px;
     }
   }
 
-  /* Luxury Card Hover effect with organic Forest Green shadow and Gold border */
+  /* Custom Luxury Cards for Clean Light Theme */
   .luxury-card {
-    @apply relative overflow-hidden rounded-xl border border-border bg-card p-6 text-card-foreground backdrop-blur-md transition-all duration-500;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  }
-  
-  .luxury-card::before {
-    content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-br from-primary/15 to-secondary/5 opacity-0 transition-opacity duration-500;
-  }
-  
-  .luxury-card:hover {
-    @apply -translate-y-1 border-secondary/40;
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.5),
-      0 0 25px rgba(110, 231, 183, 0.06);
-  }
-  
-  .luxury-card:hover::before {
-    @apply opacity-100;
+    @apply rounded-2xl border border-border/60 bg-card/50 p-6 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20;
   }
 
-  /* Premium Gradient Text - Rich Forest Gold & Fresh Green */
+  /* Text Gradients (Using Deep Navy to Construction Green) */
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-foreground via-primary to-secondary bg-clip-text text-transparent;
   }
-  
-  .text-gradient-green {
-    @apply bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent;
-  }
-  
-  /* Gold Premium Button */
+
+  /* Premium Buttons for Clean Light Theme */
   .btn-gold {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 font-medium text-black transition-all duration-300 hover:from-amber-400 hover:to-amber-500 active:scale-95 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20;
+    @apply bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground font-semibold rounded-full shadow-lg shadow-primary/10 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-outline-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-amber-500/40 bg-transparent px-6 py-3 font-medium text-amber-400 transition-all duration-300 hover:bg-amber-500/10 hover:border-amber-500 active:scale-95;
+    @apply bg-transparent hover:bg-primary/5 text-primary border border-primary/30 hover:border-primary/60 font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0;
   }
 }

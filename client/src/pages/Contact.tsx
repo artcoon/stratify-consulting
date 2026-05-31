@@ -1,12 +1,21 @@
 /*
- * Design Philosophy: Liquid Carbon & Gold
- * Page: Contact (Multi-step Lead Qualification Form)
+ * Design Philosophy: Premium Light Clean (A안 - Leaf Grid)
+ * Page: Contact / Multi-step Lead Qualification Form
  */
 
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { CheckCircle2, ChevronRight, ChevronLeft, Send, Sparkles, AlertCircle } from "lucide-react";
+import { 
+  Building2, 
+  Phone, 
+  Mail, 
+  Clock, 
+  ChevronRight, 
+  ChevronLeft, 
+  CheckCircle2,
+  FileCheck
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -17,68 +26,32 @@ export default function Contact() {
     contactName: "",
     phone: "",
     email: "",
-    projectType: "slope", // slope, landscape, maintenance, other
-    budgetRange: "10m_50m", // under_10m, 10m_50m, 50m_100m, over_100m
-    region: "gyeonggi", // gyeonggi, seoul, incheon, other
-    slopeAngle: "no_slope", // no_slope, under_30, 30_60, over_60
+    projectType: "slope", // slope, landscape, public, other
+    projectArea: "under_500", // under_500, 500_2000, over_2000
+    slopeAngle: "under_20", // under_20, 20_40, over_40
+    budget: "under_50m", // under_50m, 50m_200m, over_200m
     description: ""
   });
 
-  const projectTypes = [
-    { id: "slope", label: "친환경 사면 복원 · 녹화 (특허 공법)" },
-    { id: "landscape", label: "공공 · 산업단지 조경 시공" },
-    { id: "maintenance", label: "연간 조경 유지관리 정기 계약" },
-    { id: "planterior", label: "실내 플랜테리어 & 스마트 케어" }
-  ];
-
-  const budgetRanges = [
-    { id: "under_10m", label: "1,000만원 미만" },
-    { id: "10m_50m", label: "1,000만원 ~ 5,000만원" },
-    { id: "50m_100m", label: "5,000만원 ~ 1억원" },
-    { id: "over_100m", label: "1억원 이상 (대형 엔터프라이즈)" }
-  ];
-
-  const regions = [
-    { id: "gyeonggi", label: "경기도 (광주, 하남, 성남, 이천 등)" },
-    { id: "seoul", label: "서울특별시" },
-    { id: "incheon", label: "인천광역시" },
-    { id: "other", label: "기타 타 지역" }
-  ];
-
-  const slopeAngles = [
-    { id: "no_slope", label: "경사 없음 (평지 조경 부지)" },
-    { id: "under_30", label: "완경사 (30도 미만)" },
-    { id: "30_60", label: "급경사 (30도 ~ 60도)" },
-    { id: "over_60", label: "절토 비탈면 (60도 이상, 집중 보강 필요)" }
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleNext = () => {
-    // Basic validation
-    if (step === 1) {
-      if (!formData.companyName || !formData.contactName || !formData.phone || !formData.email) {
-        toast.error("기본 담당자 정보를 모두 입력해 주세요.");
-        return;
-      }
-    }
-    setStep(prev => prev + 1);
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlePrev = () => {
-    setStep(prev => prev - 1);
-  };
+  const nextStep = () => setStep(prev => prev + 1);
+  const prevStep = () => setStep(prev => prev - 1);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("1:1 정밀 현장진단 및 견적 신청이 완료되었습니다.", {
-      description: "담당 기술이사가 24시간 이내에 기재해 주신 연락처로 연락을 드립니다."
+    setStep(4); // Move to Success Screen
+    toast.success("정밀 진단 컨설팅 신청이 정상 접수되었습니다.", {
+      description: "담당 수석 엔지니어가 24시간 이내에 직접 연락드리겠습니다.",
+      duration: 5000
     });
-    // Reset step & form
-    setStep(4);
   };
 
   return (
@@ -86,247 +59,380 @@ export default function Contact() {
       <Navbar />
 
       <main className="flex-grow pt-32">
-        {/* Header Section */}
-        <section className="container py-12 text-center max-w-4xl mx-auto flex flex-col gap-5">
-          <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">Contact Us</span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight">
-            1:1 맞춤형 <span className="text-gradient-gold">무상 현장 정밀 진단</span>
-          </h1>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            경기도 전역 및 전국 현장에 대해 이에스조경의 전문 시공 기술진이 직접 방문하여 사면의 안전성을 분석하고, 
-            가장 합리적인 공법과 최적의 견적을 산출해 드립니다.
-          </p>
-        </section>
+        <section className="container py-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
+            {/* Left: Contact Info */}
+            <div className="lg:col-span-5 flex flex-col gap-8">
+              <div className="flex flex-col gap-4">
+                <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">Contact Us</span>
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                  지속가능한 국토를 위한<br />
+                  <span className="text-gradient-gold">첫 걸음, 정밀 기술 상담</span>
+                </h1>
+                <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                  지방자치단체, 공공기관 및 민간 종합건설사의 사면 붕괴 예방 공법 적용과 고품격 조경 설계를 위해 이에스조경의 전문 기술진이 1:1 맞춤형 컨설팅을 제공합니다.
+                </p>
+              </div>
 
-        {/* Multi-step Form Section */}
-        <section className="py-12">
-          <div className="container max-w-2xl mx-auto">
-            {/* Step Indicators */}
-            <div className="flex items-center justify-between mb-10 px-4">
-              {[1, 2, 3].map((num) => (
-                <div key={num} className="flex items-center gap-2">
-                  <div className={`h-8 w-8 rounded-full border flex items-center justify-center font-serif text-sm font-bold transition-all duration-300 ${
-                    step === num
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-black border-amber-500 scale-110 shadow-lg shadow-amber-500/10"
-                      : step > num
-                      ? "bg-primary/30 border-primary text-amber-400"
-                      : "border-border/60 text-muted-foreground"
-                  }`}>
-                    {num}
+              <div className="h-px bg-border" />
+
+              {/* Information Cards */}
+              <div className="flex flex-col gap-5">
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/5">
+                    <Building2 className="h-5 w-5 text-primary" />
                   </div>
-                  <span className={`text-xs font-semibold hidden sm:inline ${
-                    step === num ? "text-amber-400" : "text-muted-foreground"
-                  }`}>
-                    {num === 1 ? "기본 정보" : num === 2 ? "현장 및 예산" : "자가 진단"}
-                  </span>
-                  {num < 3 && <div className="h-px w-8 sm:w-16 bg-border/60 mx-2" />}
+                  <div className="flex flex-col">
+                    <span className="text-xs text-muted-foreground font-bold uppercase">본사 및 연구소</span>
+                    <span className="text-sm font-bold text-foreground mt-0.5">경기도 광주시 장지동 소재</span>
+                  </div>
                 </div>
-              ))}
+
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/5">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-muted-foreground font-bold uppercase">대표 전화</span>
+                    <span className="text-sm font-bold text-foreground mt-0.5">031-XXX-XXXX (B2B 전용)</span>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/5">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-muted-foreground font-bold uppercase">이메일 문의</span>
+                    <span className="text-sm font-bold text-foreground mt-0.5">es_landscape@naver.com</span>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/5">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-muted-foreground font-bold uppercase">상담 가능 시간</span>
+                    <span className="text-sm font-bold text-foreground mt-0.5">평일 09:00 - 18:00 (주말/공휴일 제외)</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Form Box */}
-            <div className="luxury-card min-h-[400px] flex flex-col justify-between">
-              {step === 1 && (
-                <div className="flex flex-col gap-6 text-left animate-in fade-in duration-300">
-                  <div>
-                    <h3 className="font-serif text-lg font-bold text-gradient-gold">담당자 기본 정보 입력</h3>
-                    <p className="text-xs text-muted-foreground mt-1">답사 및 상담 조율을 위한 정확한 기본 정보를 입력해 주세요.</p>
+            {/* Right: Interactive Multi-step Form */}
+            <div className="lg:col-span-7">
+              <div className="luxury-card bg-card/30 border-primary/20 p-8 sm:p-10 shadow-md">
+                {/* Step Progress Bar */}
+                {step < 4 && (
+                  <div className="flex items-center justify-between gap-2 mb-8">
+                    {[1, 2, 3].map((num) => (
+                      <div key={num} className="flex-grow flex items-center">
+                        <div className={`h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                          step >= num 
+                            ? "bg-primary text-primary-foreground shadow" 
+                            : "bg-muted text-muted-foreground border border-border"
+                        }`}>
+                          {num}
+                        </div>
+                        {num < 3 && (
+                          <div className={`flex-grow h-0.5 mx-2 rounded-full transition-all duration-300 ${
+                            step > num ? "bg-primary" : "bg-border"
+                          }`} />
+                        )}
+                      </div>
+                    ))}
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">회사명 / 기관명</label>
-                      <input 
-                        required
-                        type="text" 
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleInputChange}
-                        placeholder="예: OO시청 / OO건설" 
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">담당자 성함</label>
-                      <input 
-                        required
-                        type="text" 
-                        name="contactName"
-                        value={formData.contactName}
-                        onChange={handleInputChange}
-                        placeholder="예: 홍길동 과장" 
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">연락처 (휴대폰)</label>
-                      <input 
-                        required
-                        type="tel" 
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="예: 010-1234-5678" 
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">이메일 주소</label>
-                      <input 
-                        required
-                        type="email" 
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="example@company.com" 
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex justify-end mt-6">
-                    <Button onClick={handleNext} className="btn-gold px-6 py-2.5 text-xs font-semibold">
-                      다음 단계 <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              )}
+                )}
 
-              {step === 2 && (
-                <div className="flex flex-col gap-6 text-left animate-in fade-in duration-300">
-                  <div>
-                    <h3 className="font-serif text-lg font-bold text-gradient-gold">사업 분야 및 예산 설정</h3>
-                    <p className="text-xs text-muted-foreground mt-1">필요하신 서비스 카테고리와 가용 예산 범위를 설정해 주세요.</p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">사업 분야</label>
-                      <select 
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleInputChange}
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      >
-                        {projectTypes.map(type => (
-                          <option key={type.id} value={type.id}>{type.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">가용 예산 범위</label>
-                      <select 
-                        name="budgetRange"
-                        value={formData.budgetRange}
-                        onChange={handleInputChange}
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      >
-                        {budgetRanges.map(range => (
-                          <option key={range.id} value={range.id}>{range.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="flex flex-col gap-1.5 sm:col-span-2">
-                      <label className="text-xs text-muted-foreground">현장 소재지</label>
-                      <select 
-                        name="region"
-                        value={formData.region}
-                        onChange={handleInputChange}
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
-                      >
-                        {regions.map(reg => (
-                          <option key={reg.id} value={reg.id}>{reg.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="flex justify-between mt-6">
-                    <Button onClick={handlePrev} className="btn-outline-gold px-5 py-2.5 text-xs font-semibold">
-                      <ChevronLeft className="h-4 w-4" /> 이전 단계
-                    </Button>
-                    <Button onClick={handleNext} className="btn-gold px-6 py-2.5 text-xs font-semibold">
-                      다음 단계 <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              )}
+                <form onSubmit={handleSubmit} className="text-sm">
+                  {/* STEP 1: Basic Information */}
+                  {step === 1 && (
+                    <div className="flex flex-col gap-5 animate-in fade-in duration-300">
+                      <h3 className="font-serif text-lg font-bold text-foreground border-b border-border pb-3">
+                        STEP 1: 기업 및 담당자 기본 정보
+                      </h3>
+                      
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-xs text-muted-foreground font-semibold">회사명 / 기관명</label>
+                        <input 
+                          required
+                          type="text" 
+                          name="companyName"
+                          value={formData.companyName}
+                          onChange={handleInputChange}
+                          placeholder="예: OO건설 / OO시청 도로과" 
+                          className="bg-background/60 border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/60 font-medium"
+                        />
+                      </div>
 
-              {step === 3 && (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-left animate-in fade-in duration-300">
-                  <div>
-                    <h3 className="font-serif text-lg font-bold text-gradient-gold">사면 안전 자가진단 및 요구사항</h3>
-                    <p className="text-xs text-muted-foreground mt-1">현장 상황을 자가 진단하고, 구체적인 요구사항을 기재해 주세요.</p>
-                  </div>
-                  <div className="grid grid-cols-1 gap-4 text-sm">
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">사면 경사도 (사면 복원 신청 시 필수)</label>
-                      <select 
-                        name="slopeAngle"
-                        value={formData.slopeAngle}
-                        onChange={handleInputChange}
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60"
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-xs text-muted-foreground font-semibold">담당자 성함</label>
+                        <input 
+                          required
+                          type="text" 
+                          name="contactName"
+                          value={formData.contactName}
+                          onChange={handleInputChange}
+                          placeholder="예: 홍길동 과장" 
+                          className="bg-background/60 border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/60 font-medium"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-xs text-muted-foreground font-semibold">연락처</label>
+                          <input 
+                            required
+                            type="tel" 
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="010-XXXX-XXXX" 
+                            className="bg-background/60 border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/60 font-medium"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-xs text-muted-foreground font-semibold">이메일 주소</label>
+                          <input 
+                            required
+                            type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="example@company.com" 
+                            className="bg-background/60 border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/60 font-medium"
+                          />
+                        </div>
+                      </div>
+
+                      <Button 
+                        type="button" 
+                        onClick={nextStep}
+                        disabled={!formData.companyName || !formData.contactName || !formData.phone || !formData.email}
+                        className="btn-gold h-12 mt-4 cursor-pointer"
                       >
-                        {slopeAngles.map(angle => (
-                          <option key={angle.id} value={angle.id}>{angle.label}</option>
-                        ))}
-                      </select>
+                        다음 단계 진행 <ChevronRight className="ml-1 h-4 w-4" />
+                      </Button>
                     </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs text-muted-foreground">상세 현장 상황 및 요청사항</label>
-                      <textarea 
-                        name="description"
-                        value={formData.description}
-                        onChange={handleInputChange}
-                        rows={4}
-                        placeholder="예: 도로 개설 후 절토 사면에서 비가 올 때마다 토사가 유실됩니다. 특허 공법 설계 적용을 원합니다." 
-                        className="bg-background/60 border border-border/60 rounded-lg p-3 text-foreground focus:outline-none focus:border-amber-500/60 resize-none"
-                      />
+                  )}
+
+                  {/* STEP 2: Project Specifications */}
+                  {step === 2 && (
+                    <div className="flex flex-col gap-5 animate-in fade-in duration-300">
+                      <h3 className="font-serif text-lg font-bold text-foreground border-b border-border pb-3">
+                        STEP 2: 현장 진단 및 사업 영역 자가진단
+                      </h3>
+
+                      {/* Project Type */}
+                      <div className="flex flex-col gap-2">
+                        <label className="text-xs text-muted-foreground font-semibold">사업 및 공법 영역</label>
+                        <div className="grid grid-cols-2 gap-3">
+                          {[
+                            { id: "slope", label: "사면 복원 · 녹화" },
+                            { id: "landscape", label: "공공 및 단지 조경" },
+                            { id: "public", label: "공원 공사 (지자체)" },
+                            { id: "other", label: "기타 설계 문의" }
+                          ].map(opt => (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => handleSelectChange("projectType", opt.id)}
+                              className={`p-3 rounded-lg border text-xs font-bold transition-all duration-300 cursor-pointer ${
+                                formData.projectType === opt.id 
+                                  ? "bg-primary/5 border-primary text-primary" 
+                                  : "bg-background/60 border-border hover:border-primary/40"
+                              }`}
+                            >
+                              {opt.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Project Area */}
+                      <div className="flex flex-col gap-2">
+                        <label className="text-xs text-muted-foreground font-semibold">예상 시공 면적</label>
+                        <div className="grid grid-cols-3 gap-2">
+                          {[
+                            { id: "under_500", label: "500㎡ 미만" },
+                            { id: "500_2000", label: "500㎡ - 2,000㎡" },
+                            { id: "over_2000", label: "2,000㎡ 초과" }
+                          ].map(opt => (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => handleSelectChange("projectArea", opt.id)}
+                              className={`p-3 rounded-lg border text-[11px] font-bold transition-all duration-300 cursor-pointer ${
+                                formData.projectArea === opt.id 
+                                  ? "bg-primary/5 border-primary text-primary" 
+                                  : "bg-background/60 border-border hover:border-primary/40"
+                              }`}
+                            >
+                              {opt.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Slope Angle (Conditional) */}
+                      {formData.projectType === "slope" && (
+                        <div className="flex flex-col gap-2 animate-in slide-in-from-top-3 duration-300">
+                          <label className="text-xs text-muted-foreground font-semibold">현장 사면의 예상 경사도</label>
+                          <div className="grid grid-cols-3 gap-2">
+                            {[
+                              { id: "under_20", label: "완경사 (20도 미만)" },
+                              { id: "20_40", label: "급경사 (20-40도)" },
+                              { id: "over_40", label: "수직에 가까움 (40도+)" }
+                            ].map(opt => (
+                              <button
+                                key={opt.id}
+                                type="button"
+                                onClick={() => handleSelectChange("slopeAngle", opt.id)}
+                                className={`p-3 rounded-lg border text-[11px] font-bold transition-all duration-300 cursor-pointer ${
+                                  formData.slopeAngle === opt.id 
+                                    ? "bg-primary/5 border-primary text-primary" 
+                                    : "bg-background/60 border-border hover:border-primary/40"
+                                }`}
+                              >
+                                {opt.label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="flex gap-4 mt-4">
+                        <Button 
+                          type="button" 
+                          variant="outline"
+                          onClick={prevStep}
+                          className="flex-1 h-12 border-border hover:bg-card/40 cursor-pointer font-bold"
+                        >
+                          <ChevronLeft className="mr-1 h-4 w-4" /> 이전으로
+                        </Button>
+                        <Button 
+                          type="button" 
+                          onClick={nextStep}
+                          className="flex-1 btn-gold h-12 cursor-pointer"
+                        >
+                          다음 단계 진행 <ChevronRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex justify-between mt-6">
-                    <Button type="button" onClick={handlePrev} className="btn-outline-gold px-5 py-2.5 text-xs font-semibold">
-                      <ChevronLeft className="h-4 w-4" /> 이전 단계
-                    </Button>
-                    <Button type="submit" className="btn-gold px-6 py-2.5 text-xs font-semibold">
-                      무상 진단 신청서 제출 <Send className="h-3.5 w-3.5" />
-                    </Button>
-                  </div>
+                  )}
+
+                  {/* STEP 3: Budget & Detail Description */}
+                  {step === 3 && (
+                    <div className="flex flex-col gap-5 animate-in fade-in duration-300">
+                      <h3 className="font-serif text-lg font-bold text-foreground border-b border-border pb-3">
+                        STEP 3: 예산 수립 및 세부 현장 정보 입력
+                      </h3>
+
+                      {/* Budget Range */}
+                      <div className="flex flex-col gap-2">
+                        <label className="text-xs text-muted-foreground font-semibold">사업 예산 규모</label>
+                        <div className="grid grid-cols-3 gap-2">
+                          {[
+                            { id: "under_50m", label: "5천만 원 미만" },
+                            { id: "50m_200m", label: "5천만 - 2억 원" },
+                            { id: "over_200m", label: "2억 원 초과" }
+                          ].map(opt => (
+                            <button
+                              key={opt.id}
+                              type="button"
+                              onClick={() => handleSelectChange("budget", opt.id)}
+                              className={`p-3 rounded-lg border text-[11px] font-bold transition-all duration-300 cursor-pointer ${
+                                formData.budget === opt.id 
+                                  ? "bg-primary/5 border-primary text-primary" 
+                                  : "bg-background/60 border-border hover:border-primary/40"
+                              }`}
+                            >
+                              {opt.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Detail Description */}
+                      <div className="flex flex-col gap-1.5">
+                        <label className="text-xs text-muted-foreground font-semibold">현장 상태 및 주요 요구사항 (선택)</label>
+                        <textarea 
+                          name="description"
+                          value={formData.description}
+                          onChange={handleInputChange}
+                          rows={4}
+                          placeholder="현장의 토질 상태, 암반 유무, 집중호우 시 토사 유실 우려 사항 등 구체적인 현장 컨디션을 적어주시면 더욱 정밀한 1차 도면 검토가 가능합니다." 
+                          className="bg-background/60 border border-border rounded-lg p-3 text-foreground focus:outline-none focus:border-primary/60 font-medium resize-none"
+                        />
+                      </div>
+
+                      <div className="flex gap-4 mt-4">
+                        <Button 
+                          type="button" 
+                          variant="outline"
+                          onClick={prevStep}
+                          className="flex-1 h-12 border-border hover:bg-card/40 cursor-pointer font-bold"
+                        >
+                          <ChevronLeft className="mr-1 h-4 w-4" /> 이전으로
+                        </Button>
+                        <Button 
+                          type="submit" 
+                          className="flex-1 btn-gold h-12 cursor-pointer"
+                        >
+                          기술 상담 신청하기 <FileCheck className="ml-1.5 h-4.5 w-4.5" />
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* SUCCESS SCREEN */}
+                  {step === 4 && (
+                    <div className="flex flex-col items-center text-center gap-6 py-10 animate-in zoom-in-95 duration-500">
+                      <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                        <CheckCircle2 className="h-10 w-10 text-primary" />
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <h3 className="font-serif text-2xl font-bold text-foreground">
+                          기술 상담 접수가 완료되었습니다!
+                        </h3>
+                        <p className="text-sm text-muted-foreground max-w-md leading-relaxed font-medium">
+                          (주)이에스조경을 신뢰하고 정밀 기술 상담을 신청해 주셔서 대단히 감사합니다.
+                        </p>
+                      </div>
+
+                      <div className="h-px w-full bg-border" />
+
+                      <div className="flex flex-col gap-2.5 text-left bg-primary/5 border border-primary/15 p-5 rounded-xl w-full max-w-md">
+                        <span className="text-[10px] text-primary font-bold uppercase tracking-wider">향후 진행 일정 가이드</span>
+                        <div className="flex flex-col gap-2 text-xs text-muted-foreground font-semibold">
+                          <span className="flex items-center gap-2 text-foreground">
+                            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                            1단계: 24시간 이내 담당 수석 엔지니어 해피콜 연락
+                          </span>
+                          <span className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground" />
+                            2단계: 위성 지도 및 지형 도면을 통한 1차 비대면 분석
+                          </span>
+                          <span className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground" />
+                            3단계: 정밀 시공 장비를 지참한 무상 현장 실사 및 견적 조율
+                          </span>
+                        </div>
+                      </div>
+
+                      <Button 
+                        type="button" 
+                        onClick={() => setStep(1)}
+                        className="btn-gold h-11 px-6 text-xs font-bold mt-2 cursor-pointer"
+                      >
+                        새로운 상담 신청하기
+                      </Button>
+                    </div>
+                  )}
                 </form>
-              )}
-
-              {step === 4 && (
-                <div className="flex flex-col gap-6 text-center py-8 items-center justify-center animate-in zoom-in-95 duration-500">
-                  <div className="h-16 w-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-2">
-                    <CheckCircle2 className="h-8 w-8 text-amber-400" />
-                  </div>
-                  <h3 className="font-serif text-2xl font-bold text-gradient-gold">
-                    진단 신청서 접수 완료
-                  </h3>
-                  <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-                    성공적으로 신청서가 접수되었습니다. (주)이에스조경의 담당 기술이사가 <strong>24시간 이내</strong>에 유선으로 연락을 드려, 상세한 현장 분석 및 답사 일정을 조율하겠습니다.
-                  </p>
-                  <div className="flex items-center gap-2 mt-4 text-xs text-amber-400 bg-amber-500/5 border border-amber-500/15 rounded-lg p-3 max-w-sm text-left">
-                    <AlertCircle className="h-5 w-5 shrink-0" />
-                    <span>긴급한 현장 붕괴 위험 조치가 필요한 경우, 대표전화(031-762-3450)로 즉시 연락해 주시기 바랍니다.</span>
-                  </div>
-                  <Button 
-                    onClick={() => {
-                      setStep(1);
-                      setFormData({
-                        companyName: "",
-                        contactName: "",
-                        phone: "",
-                        email: "",
-                        projectType: "slope",
-                        budgetRange: "10m_50m",
-                        region: "gyeonggi",
-                        slopeAngle: "no_slope",
-                        description: ""
-                      });
-                    }}
-                    className="btn-outline-gold mt-6 px-6 py-2.5 text-xs"
-                  >
-                    추가 신청하기
-                  </Button>
-                </div>
-              )}
+              </div>
             </div>
           </div>
         </section>

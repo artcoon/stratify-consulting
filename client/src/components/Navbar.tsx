@@ -1,5 +1,5 @@
 /*
- * Design Philosophy: Forest Emerald & Champagne Gold
+ * Design Philosophy: Premium Light Clean (A안 - Leaf Grid)
  * Component: Premium Navigation Header
  */
 
@@ -37,22 +37,22 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/90 border-b border-border/40 backdrop-blur-lg py-4"
+          ? "bg-background/95 border-b border-border/60 backdrop-blur-md py-4 shadow-sm"
           : "bg-transparent py-6"
       }`}
     >
       <div className="container flex items-center justify-between">
         {/* Brand Logo & Monogram */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-amber-500/30 bg-gradient-to-br from-primary/20 to-secondary/10 transition-transform duration-500 group-hover:rotate-12">
-            <span className="font-serif text-lg font-bold text-gradient-gold">S</span>
-            <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-br from-amber-500 to-emerald-500 opacity-0 blur transition-opacity duration-500 group-hover:opacity-30" />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/10 transition-transform duration-500 group-hover:rotate-12">
+            <span className="font-serif text-lg font-bold text-primary">ES</span>
+            <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-br from-primary to-secondary opacity-0 blur transition-opacity duration-500 group-hover:opacity-20" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="font-serif text-lg font-bold tracking-wider text-gradient-gold group-hover:opacity-80 transition-opacity">
+            <span className="font-serif text-lg font-bold tracking-wider text-foreground group-hover:text-primary transition-colors">
               STRATIFY
             </span>
-            <span className="text-[9px] tracking-[0.25em] text-emerald-400 font-semibold uppercase">
+            <span className="text-[9px] tracking-[0.25em] text-primary font-bold uppercase">
               Consulting & Landscape
             </span>
           </div>
@@ -65,15 +65,15 @@ export default function Navbar() {
             return (
               <Link key={item.path} href={item.path}>
                 <span
-                  className={`relative text-sm font-semibold tracking-wide transition-colors duration-300 cursor-pointer py-1 ${
+                  className={`relative text-sm font-bold tracking-wide transition-colors duration-300 cursor-pointer py-1 ${
                     isActive
-                      ? "text-gradient-gold"
-                      : "text-muted-foreground hover:text-emerald-400"
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-300 rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full" />
                   )}
                 </span>
               </Link>
@@ -83,12 +83,12 @@ export default function Navbar() {
 
         {/* Certifications & CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-xs text-emerald-300 font-medium">
-            <Award className="h-3.5 w-3.5 text-emerald-400" />
+          <div className="flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary font-semibold">
+            <Award className="h-3.5 w-3.5 text-primary" />
             여성기업인증
           </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1 text-xs text-amber-400 font-medium">
-            <ShieldCheck className="h-3.5 w-3.5 text-amber-400" />
+          <div className="flex items-center gap-1.5 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-xs text-secondary-foreground font-semibold">
+            <ShieldCheck className="h-3.5 w-3.5 text-secondary" />
             특허 공법 보유
           </div>
           <Link href="/contact">
@@ -110,15 +110,15 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 border-b border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-top-5 duration-300">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/80 backdrop-blur-xl animate-in fade-in slide-in-from-top-5 duration-300 shadow-lg">
           <div className="container py-6 flex flex-col gap-4 text-left">
             {navItems.map((item) => {
               const isActive = location === item.path;
               return (
                 <Link key={item.path} href={item.path} onClick={() => setIsOpen(false)}>
                   <span
-                    className={`block text-base font-medium py-2 transition-colors cursor-pointer ${
-                      isActive ? "text-amber-400 pl-2 border-l-2 border-amber-400" : "text-muted-foreground hover:text-foreground"
+                    className={`block text-base font-bold py-2 transition-colors cursor-pointer ${
+                      isActive ? "text-primary pl-2 border-l-2 border-primary" : "text-muted-foreground hover:text-primary"
                     }`}
                   >
                     {item.name}
@@ -126,14 +126,14 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="h-px bg-border/50 my-2" />
+            <div className="h-px bg-border my-2" />
             <div className="flex flex-wrap gap-2.5">
-              <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-xs text-emerald-300">
-                <Award className="h-3 w-3 text-emerald-400" />
+              <div className="flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary font-semibold">
+                <Award className="h-3 w-3 text-primary" />
                 여성기업인증
               </div>
-              <div className="flex items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1 text-xs text-amber-400">
-                <ShieldCheck className="h-3 w-3 text-amber-400" />
+              <div className="flex items-center gap-1.5 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-xs text-secondary-foreground font-semibold">
+                <ShieldCheck className="h-3 w-3 text-secondary" />
                 특허 공법 보유
               </div>
             </div>
