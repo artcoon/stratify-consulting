@@ -393,7 +393,7 @@ export default function Home() {
               <img
                 src="/logo.png?v=3"
                 alt="(주)이에스조경"
-                className="h-14 w-auto max-h-16 sm:h-16 sm:max-h-20 object-contain"
+                className="h-28 w-auto max-h-32 sm:h-32 sm:max-h-40 object-contain"
               />
             </div>
 
