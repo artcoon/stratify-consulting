@@ -12,7 +12,7 @@ export const COMPANY_INFO = {
   phone: "031-764-2021",
   tel: "031-764-2021", // added tel for compatibility with Footer.tsx
   fax: "031-764-2022",
-  email: "contact@eslandscape.co.kr",
+  email: "esjk2025@naver.com",
   registrationNo: "124-81-00000", // added registrationNo for compatibility with Footer.tsx
   slogan: "현장에 뿌리내리는 녹색 시공, 지속가능한 녹색 미래를 건설합니다.",
   certifications: [
