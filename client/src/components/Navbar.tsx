@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, ShieldCheck, Award, Trees } from "lucide-react";
+import { Menu, X, ArrowRight, ShieldCheck, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
@@ -64,20 +64,13 @@ export default function Navbar() {
         {/* Brand Logo & Monogram */}
         <button
           onClick={() => scrollToSection("home")}
-          className="flex items-center gap-3 group text-left cursor-pointer bg-transparent border-0 p-0"
+          className="flex items-center cursor-pointer bg-transparent border-0 p-0"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/10 transition-transform duration-500 group-hover:rotate-12 overflow-hidden p-1">
-            <Trees className="h-5 w-5 text-primary" />
-            <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-br from-primary to-secondary opacity-0 blur transition-opacity duration-500 group-hover:opacity-20" />
-          </div>
-          <div className="flex flex-col text-left">
-            <span className="font-serif text-lg font-bold tracking-wider text-foreground group-hover:text-primary transition-colors leading-none">
-              (주)이에스조경
-            </span>
-            <span className="text-[9px] tracking-[0.2em] text-primary font-bold uppercase mt-1 leading-none">
-              ES LANDSCAPE
-            </span>
-          </div>
+          <img
+            src="/logo.png"
+            alt="(주)이에스조경"
+            className="h-10 w-10 object-contain shrink-0"
+          />
         </button>
 
         {/* Desktop Navigation Links */}

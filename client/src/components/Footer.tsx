@@ -25,18 +25,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand Column */}
           <div className="md:col-span-5 flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 overflow-hidden p-0.5">
-                <img src="/logo.png" alt="" className="h-full w-full object-contain" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-sm font-bold text-foreground tracking-wider leading-none">
-                  ES GREENWORKS
-                </span>
-                <span className="text-[10px] text-primary font-bold tracking-widest mt-1 leading-none">
-                  {COMPANY_INFO.name}
-                </span>
-              </div>
+            <div className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="(주)이에스조경"
+                className="h-8 w-8 object-contain shrink-0"
+              />
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed font-semibold max-w-sm">
               (주)이에스조경은 특허 등록된 다층복합보강구조 비탈면 식생 공법과
