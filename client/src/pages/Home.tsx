@@ -1289,6 +1289,7 @@ export default function Home() {
                 당사의 전문 기술이사가 직접 현장을 분석하고 무료 최적화
                 포트폴리오를 제공해 드립니다.
               </p>
+              <p className="text-xs font-bold text-primary">문의 이메일: {COMPANY_INFO.email}</p>
             </div>
 
             {/* Step Progress Bar */}
