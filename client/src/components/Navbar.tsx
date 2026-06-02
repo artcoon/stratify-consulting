@@ -67,7 +67,7 @@ export default function Navbar() {
           className="flex items-center cursor-pointer bg-transparent border-0 p-0"
         >
           <img
-            src="/logo.png"
+            src="/logo.png?v=3"
             alt="(주)이에스조경"
             className="h-12 w-auto max-h-14 sm:h-14 sm:max-h-16 object-contain shrink-0"
           />
