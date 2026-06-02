@@ -389,6 +389,14 @@ export default function Home() {
               </p>
             </div>
 
+            <div className="flex justify-center mb-16">
+              <img
+                src="/logo.png?v=3"
+                alt="(주)이에스조경"
+                className="h-14 w-auto max-h-16 sm:h-16 sm:max-h-20 object-contain"
+              />
+            </div>
+
             {/* CEO Message Detail Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-24">
               {/* CEO Image (Single elegant portrait) */}
