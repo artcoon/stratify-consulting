@@ -230,6 +230,8 @@ export default defineConfig({
       ".manus-asia.computer",
       ".manuscomputer.ai",
       ".manusvm.computer",
+      "esland.space",
+      "www.esland.space",
       "localhost",
       "127.0.0.1",
     ],
