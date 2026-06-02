@@ -27,8 +27,9 @@ export const COMPANY_INFO = {
 export const CEO_MESSAGE = {
   name: "박은선",
   title: "대표이사",
-  photo: "https://esland.manus.space/manus-storage/ceo_photo_5_1aa8eacf.jpg",
-  photoSub: "https://esland.manus.space/manus-storage/ceo_photo_5_1aa8eacf.jpg",
+  photoHero: "/images/ceo-hero.jpg",
+  photo: "/images/ceo-about.jpg",
+  photoSub: "/images/ceo-about.jpg",
   philosophy: "현장에 정직하게 뿌리내린 녹색 기술만이 지속가능한 내일을 보장합니다.", // added philosophy for compatibility with Home.tsx
   greeting: "안녕하십니까, (주)이에스조경 대표이사 박은선입니다.",
   paragraphs: [
@@ -51,7 +52,7 @@ export const HISTORY = [
 export const FIVE_LAYER_SYSTEM = {
   title: "다층 복합 보강 구조 시스템 (5-Layer System)",
   subtitle: "흙의 유실을 방지하고 식생을 빠르게 복원하는 친환경 특허 사면 보강 구조",
-  diagramImage: "https://esland.manus.space/manus-storage/five_layer_diagram_d416aa04.png", // User provided high-quality blueprint diagram
+  diagramImage: "/manus-storage/five_layer_diagram_d416aa04.png", // User provided high-quality blueprint diagram
   layers: [
     {
       id: 1,
@@ -138,7 +139,7 @@ export const CASE_STUDIES = [
     category: "slope",
     year: "2024년",
     budget: "8,500만원",
-    image: "https://esland.manus.space/manus-storage/highway_slope_stabilization_42b26767.png", // Newly generated unique AI image
+    image: "/manus-storage/highway_slope_stabilization_42b26767.png", // Newly generated unique AI image
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4", // Mock high-quality drone video
     description: "집중호우로 토사 붕괴 위험이 발생한 급경사 절토사면에 특허 다층복합보강구조 공법과 바이오차 식생재를 뿜어붙여 99% 이상의 완벽한 녹화 활착을 이뤄냈습니다.",
     longDescription: "초월읍 쌍동리 일원의 비탈면은 경사도 55도 이상의 급경사 절토사면으로, 우기철 집중호우 시 상부 도로 유실 및 산사태 위험이 매우 높은 긴급 현장이었습니다. 당사는 고인장 HDPE 지오그리드를 고정하고 천연 코코넛 매트를 포설한 뒤, 탄소 저장형 바이오차 식생기반재를 살포하는 특허 5-Layer 공법을 전격 적용하였습니다. 시공 후 2개월 만에 99% 이상의 식생 활착을 이뤄내며 사면의 구조적 안정성을 완벽히 확보했습니다.",
@@ -162,7 +163,7 @@ export const CASE_STUDIES = [
     category: "private",
     year: "2023년",
     budget: "1억 2,000만원",
-    image: "https://esland.manus.space/manus-storage/rooftop_garden_luxury_883f590c.png", // Newly generated unique AI image
+    image: "/manus-storage/rooftop_garden_luxury_883f590c.png", // Newly generated unique AI image
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-buildings-with-green-gardens-41618-large.mp4",
     description: "아파트 단지 중앙 광장 조경 공사로, 수목 고사율을 극소화하고 미세먼지 저감 능력을 극대화한 다층식재 설계를 도입했습니다.",
     longDescription: "광주역세권 신축 아파트 단지 중앙 광장 조경 공사로, 입주민의 삶의 질 향상과 미세먼지 저감을 목표로 다층식재 설계를 적용했습니다. 대형 팽나무, 소나무 등 명품 교목을 중심으로 하부에 낙엽관목과 다년생 지피식물을 입체적으로 배치했습니다. 식재 시 뿌리 발달을 돕는 제올라이트 함유 특수 토양 개량을 수행하고, 모바일 연동 스마트 관수 시스템을 구축하여 준공 후 수목 고사율을 0.5% 미만으로 억제했습니다.",
@@ -186,7 +187,7 @@ export const CASE_STUDIES = [
     category: "public",
     year: "2024년",
     budget: "9,800만원",
-    image: "https://esland.manus.space/manus-storage/hero_park_1efde93b.png", // User provided high-quality beautiful park image
+    image: "/manus-storage/hero_park_1efde93b.png", // User provided high-quality beautiful park image
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4",
     description: "구도심 낙후 지역의 자투리 유휴 부지를 활용하여 탄소 흡수원 식재 기법을 적용한 도심형 휴식 공간이자 생태 거점 정원을 조성했습니다.",
     longDescription: "광주역동 구도심 재생 지구 내 버려진 공터를 대상으로 시민들을 위한 생태 정원을 조성한 공공 프로젝트입니다. 탄소 흡수 능력이 우수한 자생 지피식물과 다년생 야생화 중심의 '탄소 저감 정원'을 구성하고, 투수성 친환경 포장을 도입하여 빗물의 자연 순환을 유도했습니다. 지역 어르신들과 어린이를 위한 친환경 목재 휴게 시설물도 함께 도입하여 높은 만족도를 기록했습니다.",
@@ -231,6 +232,46 @@ export const MINI_PROJECTS = [
   { id: "p-22", title: "퇴촌면 도수리 생태 소하천 법면 녹화 공사", client: "경기도 광주시청", year: "2023", budget: "4,900만원", lat: 37.4712, lng: 127.3282, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" }
 ];
 
+export interface ProjectSite {
+  id: string;
+  title: string;
+  client: string;
+  year?: string;
+  budget: string;
+  lat: number;
+  lng: number;
+  description?: string;
+  featured?: boolean;
+}
+
+export function formatProjectCoordinates(lat: number, lng: number): string {
+  return `${lat.toFixed(4)}°N, ${lng.toFixed(4)}°E`;
+}
+
+export const PROJECT_SITES: ProjectSite[] = [
+  ...CASE_STUDIES.map((study) => ({
+    id: study.id,
+    title: study.title,
+    client: study.client,
+    year: study.year,
+    budget: study.budget,
+    lat: study.lat,
+    lng: study.lng,
+    description: study.description,
+    featured: true,
+  })),
+  ...MINI_PROJECTS.map((project) => ({
+    id: project.id,
+    title: project.title,
+    client: project.client,
+    year: project.year,
+    budget: project.budget,
+    lat: project.lat,
+    lng: project.lng,
+    featured: false,
+  })),
+];
+
 // Analyst Reports / Insights Data
 export const INSIGHTS = [
   {
@@ -267,8 +308,8 @@ export const BEFORE_AFTER_DATA = {
   title: "비탈면 생태 복원 시각적 성과",
   subtitle: "특허 5-Layer 공법 적용 전후 비교",
   description: "집중호우로 토사가 흘러내리던 척박한 급경사 암반 절토사면이 당사의 특허 다층복합보강 공법과 탄소 저장형 바이오차 기반재 시공을 통해 단 3개월 만에 완벽하고 푸른 생태 식생 사면으로 되살아난 실제 시공 전후 비교 모습입니다. 마우스 드래그를 통해 확인해 보세요.",
-  beforeImage: "https://esland.manus.space/manus-storage/five_layer_diagram_d416aa04.png", // Detailed blueprint diagram as reference
-  afterImage: "https://esland.manus.space/manus-storage/highway_slope_stabilization_42b26767.png", // Fully green slope
+  beforeImage: "/manus-storage/five_layer_diagram_d416aa04.png", // Detailed blueprint diagram as reference
+  afterImage: "/manus-storage/highway_slope_stabilization_42b26767.png", // Fully green slope
   beforeLabel: "시공 전 (토사 유실 및 붕괴 위험)",
   afterLabel: "시공 후 (5-Layer 특허 녹화 활착)"
 };
