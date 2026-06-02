@@ -33,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import heroPortrait from "../../ceopics.png";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("slope");
@@ -336,7 +337,7 @@ export default function Home() {
                   {/* Image container */}
                   <div className="aspect-[3/4] w-full rounded-xl overflow-hidden relative border border-border/80">
                     <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663283438125/4Ty34aTXnHdjiTU7VWcZUo/ceo_main-WiaURJufF8tRbKKuET6bMv.webp"
+                      src={heroPortrait}
                       alt="박은선 대표이사"
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
