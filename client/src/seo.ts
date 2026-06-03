@@ -12,7 +12,9 @@ export const SEO = {
   legalName: COMPANY_INFO.name,
   title:
     "(주)이에스조경 | 경기 광주 조경공사 · 비탈면 식생 · 사면복원 · 친환경 조경 전문",
-  description: `${COMPANY_INFO.name}은 경기도 광주·초월읍을 기반으로 조경식재·조경시설물 설치, 특허 다층복합보강 비탈면 식생, 바이오차 친환경 조경, 사면복원·절토사면 녹화, 공원·옥상조경 시공을 수행하는 ISO 인증·여성기업 조경 전문업체입니다. 무료 현장 진단 ${COMPANY_INFO.tel}.`,
+  /** Naver Search Advisor: meta description must be ≤80 characters */
+  description:
+    "(주)이에스조경 | 경기 광주 조경공사·비탈면 식생·사면복원·친환경 조경. 무료 진단 031-764-2021",
   locale: "ko_KR",
   language: "ko",
   ogImage: `${SITE_URL}/logo.png`,
