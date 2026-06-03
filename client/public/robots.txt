@@ -1,4 +1,17 @@
+# https://esland.space — (주)이에스조경
 User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://esland.space/sitemap.xml
