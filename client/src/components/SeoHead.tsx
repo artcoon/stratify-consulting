@@ -5,6 +5,7 @@ import {
   SEO_KEYWORDS_STRING,
   SITE_URL,
   buildJsonLdGraph,
+  NAVER_SITE_VERIFICATION,
 } from "@/seo";
 
 const JSON_LD_ID = "esland-json-ld";
@@ -110,7 +111,9 @@ export default function SeoHead() {
 
     // Search engine ownership verification (set in .env)
     const googleVerify = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION as string | undefined;
-    const naverVerify = import.meta.env.VITE_NAVER_SITE_VERIFICATION as string | undefined;
+    const naverVerify =
+      (import.meta.env.VITE_NAVER_SITE_VERIFICATION as string | undefined) ??
+      NAVER_SITE_VERIFICATION;
     if (googleVerify) upsertMeta("name", "google-site-verification", googleVerify);
     if (naverVerify) upsertMeta("name", "naver-site-verification", naverVerify);
 
