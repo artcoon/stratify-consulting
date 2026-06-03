@@ -3,6 +3,9 @@ import { COMPANY_INFO } from "./const";
 /** Canonical production URL (GitHub Pages custom domain) */
 export const SITE_URL = "https://esland.space";
 
+/** Naver Search Advisor ownership verification */
+export const NAVER_SITE_VERIFICATION = "a53e153d3a1f9a3f11c5856a210b16c37edfa5da";
+
 export const SEO = {
   siteName: "(주)이에스조경",
   brandName: "ES LANDSCAPE · ES GREENWORKS",
