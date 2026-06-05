@@ -523,33 +523,29 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-4 p-6 rounded-xl bg-background border border-border/60 flex flex-col gap-6 sm:col-span-2 shadow-sm">
-                  <div className="text-center w-full pt-2">
-                    <h4 className="font-serif text-xl font-bold flex items-center justify-center gap-3">
-                      <span className="text-black tracking-tighter">》》》</span>
-                      <span className="text-[#00A8E8]">기술자 보유현황</span>
-                      <span className="text-black tracking-tighter">《《《</span>
-                    </h4>
-                  </div>
-                  <div className="overflow-x-auto w-full">
-                    <table className="w-full text-sm text-center border-collapse">
+                <div className="p-5 rounded-xl bg-background border border-border/60 flex flex-col gap-2 sm:col-span-2">
+                  <span className="text-[10px] text-primary font-bold uppercase tracking-wider">
+                    기술자 보유현황
+                  </span>
+                  <div className="overflow-x-auto w-full mt-2">
+                    <table className="w-full text-xs text-left border-collapse">
                       <thead>
-                        <tr className="border-t-[3px] border-b-[2px] border-gray-300 text-black font-bold text-[15px]">
-                          <th className="py-3 px-2 whitespace-nowrap">번호</th>
-                          <th className="py-3 px-2 whitespace-nowrap">성명</th>
-                          <th className="py-3 px-2 whitespace-nowrap">생년월일</th>
-                          <th className="py-3 px-2 whitespace-nowrap">보유자격</th>
-                          <th className="py-3 px-2 whitespace-nowrap">등록번호</th>
+                        <tr className="border-b border-border/60 text-muted-foreground font-semibold">
+                          <th className="py-2.5 px-2 whitespace-nowrap">번호</th>
+                          <th className="py-2.5 px-2 whitespace-nowrap">성명</th>
+                          <th className="py-2.5 px-2 whitespace-nowrap">생년월일</th>
+                          <th className="py-2.5 px-2 whitespace-nowrap">보유자격</th>
+                          <th className="py-2.5 px-2 whitespace-nowrap">등록번호</th>
                         </tr>
                       </thead>
-                      <tbody className="text-black font-medium text-[15px]">
+                      <tbody className="text-[#6B6B5F] font-medium">
                         {TECHNICIANS.map((tech, idx) => (
-                          <tr key={idx} className={cn("border-b border-gray-200", idx % 2 === 0 ? "bg-[#f2f2f2]" : "bg-white")}>
-                            <td className="py-3 px-2">{tech.id}</td>
-                            <td className="py-3 px-2">{tech.name}</td>
-                            <td className="py-3 px-2">{tech.birth}</td>
-                            <td className="py-3 px-2 text-left sm:text-center">{tech.license}</td>
-                            <td className="py-3 px-2">{tech.regNo}</td>
+                          <tr key={idx} className="border-b border-border/30 last:border-0 hover:bg-muted/50 transition-colors">
+                            <td className="py-2.5 px-2">{tech.id}</td>
+                            <td className="py-2.5 px-2">{tech.name}</td>
+                            <td className="py-2.5 px-2">{tech.birth}</td>
+                            <td className="py-2.5 px-2">{tech.license}</td>
+                            <td className="py-2.5 px-2">{tech.regNo}</td>
                           </tr>
                         ))}
                       </tbody>
