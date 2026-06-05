@@ -80,7 +80,7 @@ import { useEffect, useRef } from "react";
 import { usePersistFn } from "@/hooks/usePersistFn";
 import { cn } from "@/lib/utils";
 import L from "leaflet";
-import { CASE_STUDIES, MINI_PROJECTS } from "../const";
+import { CONSTRUCTION_RECORDS } from "../const";
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -178,7 +178,7 @@ export function MapView({
       return;
     }
 
-    // Leaflet fallback (GitHub Pages-safe): show all 25 sites
+    // Leaflet fallback (GitHub Pages-safe): show all sites
     const m = L.map(mapContainer.current, { scrollWheelZoom: false });
     leafletMap.current = m;
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -187,53 +187,30 @@ export function MapView({
       maxZoom: 18,
     }).addTo(m);
 
-    const sites = [
-      ...CASE_STUDIES.map((s) => ({
-        id: s.id,
-        title: s.title,
-        client: s.client,
-        year: s.year,
-        budget: s.budget,
-        description: s.description,
-        lat: s.lat,
-        lng: s.lng,
-        featured: true,
-      })),
-      ...MINI_PROJECTS.map((p) => ({
-        id: p.id,
-        title: p.title,
-        client: p.client,
-        year: p.year,
-        budget: p.budget,
-        description: undefined as string | undefined,
-        lat: p.lat,
-        lng: p.lng,
-        featured: false,
-      })),
-    ];
-
     const bounds = L.latLngBounds([]);
-    sites.forEach((site) => {
+    CONSTRUCTION_RECORDS.forEach((site) => {
       const latLng: L.LatLngExpression = [site.lat, site.lng];
       bounds.extend(latLng);
 
       const marker = L.marker(latLng, {
-        icon: site.featured ? leafletFeaturedIcon : leafletDefaultIcon,
+        icon: leafletDefaultIcon,
       }).addTo(m);
-
-      const descriptionHtml = site.description
-        ? `<p style="margin:0 0 8px;font-size:11px;color:#6B6B5F;line-height:1.4">${site.description}</p>`
-        : "";
 
       marker.bindPopup(`
         <div style="padding:8px 4px;max-width:260px;text-align:left;font-family:sans-serif">
-          <span style="font-size:9px;font-weight:bold;color:#1F7A3A;text-transform:uppercase;letter-spacing:1px">${site.client}</span>
-          <h4 style="margin:4px 0 6px;font-size:13px;font-weight:bold;color:#173B57">${site.title}</h4>
-          ${descriptionHtml}
-          <div style="font-size:10px;font-weight:bold;color:#1F7A3A">실적 규모: ${site.budget}</div>
-          ${site.year ? `<div style="margin-top:4px;font-size:10px;color:#6B6B5F">준공: ${site.year}</div>` : ""}
+          <h4 style="margin:0 0 6px;font-size:14px;font-weight:bold;color:#173B57">${site.company}</h4>
+          <div style="font-size:11px;color:#6B6B5F;margin-bottom:2px"><strong>공사기간:</strong> ${site.period}</div>
+          <div style="font-size:11px;color:#6B6B5F;margin-bottom:2px"><strong>계약금액:</strong> ${site.amount}원</div>
         </div>
       `);
+
+      // Open popup on hover
+      marker.on('mouseover', function () {
+          this.openPopup();
+      });
+      marker.on('mouseout', function () {
+          this.closePopup();
+      });
     });
 
     if (bounds.isValid()) {

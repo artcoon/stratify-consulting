@@ -205,30 +205,30 @@ export const CASE_STUDIES = [
   }
 ];
 
-// Add 22 more realistic mini-projects to make a total of 25 projects
-export const MINI_PROJECTS = [
-  { id: "p-1", title: "광주 퇴촌면 관음리 도로 절토사면 복구", client: "경기도 광주시청", year: "2024", budget: "4,200만원", lat: 37.4682, lng: 127.3142, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-2", title: "태전동 힐스테이트 주변 완충녹지 식재", client: "대웅건설(주)", year: "2023", budget: "7,800만원", lat: 37.3882, lng: 127.2412, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-buildings-with-green-gardens-41618-large.mp4" },
-  { id: "p-3", title: "오포읍 신현리 빌라 단지 옹벽 녹화 공사", client: "신현리 조합", year: "2024", budget: "3,500만원", lat: 37.3695, lng: 127.1852, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-4", title: "경충대로 초월구간 방음벽 하부 녹화", client: "수원국토관리사무소", year: "2023", budget: "5,100만원", lat: 37.4125, lng: 127.2982, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-5", title: "곤지암읍 수양리 공장 절토 사면 보강", client: "삼우정밀", year: "2024", budget: "6,200만원", lat: 37.3512, lng: 127.3452, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-6", title: "남한산성 도립공원 등산로 사면 정비", client: "경기도 남한산성세계유산센터", year: "2023", budget: "4,800만원", lat: 37.4785, lng: 127.1985, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-7", title: "광남동 주민센터 옥상 그린 정원 조성", client: "경기도 광주시청", year: "2024", budget: "2,900만원", lat: 37.3912, lng: 127.2289, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-8", title: "쌍령동 공동주택 옹벽 상부 식생 공사", client: "태영종합건설", year: "2023", budget: "8,900만원", lat: 37.4082, lng: 127.2712, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-buildings-with-green-gardens-41618-large.mp4" },
-  { id: "p-9", title: "곤지암 리조트 스키 슬로프 하부 녹화", client: "서브원", year: "2024", budget: "1억 1,500만원", lat: 37.3382, lng: 127.3512, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-10", title: "목현천 수변공원 식생 매트 및 지피식재", client: "경기도 광주시청", year: "2023", budget: "6,700만원", lat: 37.4182, lng: 127.2482, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-11", title: "중대물빛공원 주차장 주변 녹지대 조성", client: "경기도 광주시청", year: "2024", budget: "3,800만원", lat: 37.4112, lng: 127.2182, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-12", title: "초월읍 무갑리 물류창고 절토 사면 안정화", client: "로지스밸리", year: "2024", budget: "9,200만원", lat: 37.4012, lng: 127.3212, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-13", title: "도척면 궁평리 전원주택단지 석축 녹화", client: "궁평리 조합", year: "2023", budget: "4,500만원", lat: 37.3112, lng: 127.3012, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-buildings-with-green-gardens-41618-large.mp4" },
-  { id: "p-14", title: "역동 소공원 어린이 놀이시설 및 식재", client: "경기도 광주시청", year: "2024", budget: "7,300만원", lat: 37.3982, lng: 127.2612, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-15", title: "송정동 시청사 주변 생태 정원 조성", client: "경기도 광주시청", year: "2023", budget: "5,400만원", lat: 37.4282, lng: 127.2512, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-16", title: "탄벌동 군부대 이전 부지 사면 안정화", client: "국방시설본부", year: "2024", budget: "1억 500만원", lat: 37.4142, lng: 127.2312, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-17", title: "초월읍 학동리 공장 배후 비탈면 긴급 보강", client: "대성산업", year: "2024", budget: "5,800만원", lat: 37.3852, lng: 127.3112, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-18", title: "경안동 상업지구 보행자 전용도로 띠녹지", client: "경기도 광주시청", year: "2023", budget: "2,200만원", lat: 37.4052, lng: 127.2552, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-19", title: "태전고등학교 옹벽 하부 생태 학습원", client: "광주하남교육지원청", year: "2024", budget: "3,100만원", lat: 37.3782, lng: 127.2352, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-green-park-with-paved-paths-and-trees-41584-large.mp4" },
-  { id: "p-20", title: "도척면 진우리 물류센터 조경 및 식생사면", client: "한일로지스", year: "2023", budget: "1억 1,000만원", lat: 37.3182, lng: 127.2812, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" },
-  { id: "p-21", title: "초월역 아파트 배후 옹벽 지오그리드 보강", client: "대웅건설(주)", year: "2024", budget: "7,500만원", lat: 37.4212, lng: 127.2912, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-buildings-with-green-gardens-41618-large.mp4" },
-  { id: "p-22", title: "퇴촌면 도수리 생태 소하천 법면 녹화 공사", client: "경기도 광주시청", year: "2023", budget: "4,900만원", lat: 37.4712, lng: 127.3282, videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-in-autumn-41582-large.mp4" }
+// Construction Records from the uploaded image
+export const CONSTRUCTION_RECORDS = [
+  { id: "c-1", company: "영암군청", period: "2025.02~04", amount: "45,123,972", lat: 34.8001, lng: 126.6967 },
+  { id: "c-2", company: "대웅건설(주)", period: "2025.05", amount: "35,000,000", lat: 37.3948, lng: 127.2662 },
+  { id: "c-3", company: "(주)성지건설", period: "2025.05", amount: "12,700,000", lat: 34.8101, lng: 126.6852 },
+  { id: "c-4", company: "진우건설(주)", period: "2025.06", amount: "35,000,000", lat: 34.7951, lng: 126.7011 },
+  { id: "c-5", company: "성지산업건설", period: "2025.07~11", amount: "9,288,700", lat: 34.8211, lng: 126.6902 },
+  { id: "c-6", company: "광주 서구청", period: "2025.09", amount: "1,756,664", lat: 35.1520, lng: 126.8900 },
+  { id: "c-7", company: "영우건설", period: "2025.10", amount: "12,540,000", lat: 34.7899, lng: 126.7100 },
+  { id: "c-8", company: "오성정보통신", period: "2025.10", amount: "81,000,000", lat: 34.8055, lng: 126.6800 },
+  { id: "c-9", company: "김경화", period: "2025.11", amount: "9,909,091", lat: 34.8150, lng: 126.6950 },
+  { id: "c-10", company: "영암군청", period: "2024.02~12", amount: "73,701,337", lat: 34.8005, lng: 126.6970 },
+  { id: "c-11", company: "(유)천하환경", period: "2024.05", amount: "30,700,000", lat: 34.7905, lng: 126.7150 },
+  { id: "c-12", company: "영암군대불기업지원단", period: "2024.09", amount: "11,950,409", lat: 34.7600, lng: 126.4700 },
+  { id: "c-13", company: "(주)대신조경", period: "2024.11", amount: "31,000,000", lat: 34.7920, lng: 126.6920 },
+  { id: "c-14", company: "(주)수인컴퍼니", period: "2024.11", amount: "115,943,990", lat: 34.8080, lng: 126.7080 },
+  { id: "c-15", company: "민트이엔씨(주)", period: "2024.12", amount: "111,463,636", lat: 34.8120, lng: 126.6880 },
+  { id: "c-16", company: "의성기업(주)", period: "2023.02~12", amount: "134,050,000", lat: 34.7980, lng: 126.6850 },
+  { id: "c-17", company: "영암군대불기업지원단", period: "2023.04~10", amount: "41,191,864", lat: 34.7620, lng: 126.4720 },
+  { id: "c-18", company: "영암군대불기업지원단", period: "2023.06~10", amount: "129,959,736", lat: 34.7640, lng: 126.4750 },
+  { id: "c-19", company: "영암군청", period: "2022.7~12", amount: "61,377,799", lat: 34.8010, lng: 126.6960 },
+  { id: "c-20", company: "국립호남권생물자원관", period: "2022.12", amount: "71,345,000", lat: 34.7735, lng: 126.3750 },
+  { id: "c-21", company: "(주)수영건설", period: "2021.05", amount: "130,000,000", lat: 34.8180, lng: 126.7050 },
+  { id: "c-22", company: "영암군청", period: "2021.05", amount: "20,708,736", lat: 34.7995, lng: 126.6975 }
 ];
 
 // Analyst Reports / Insights Data
