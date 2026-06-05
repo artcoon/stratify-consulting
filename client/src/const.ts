@@ -358,3 +358,10 @@ export const SERVICES: ServiceItem[] = [
     }
   }
 ];
+
+// Technician Status Data
+export const TECHNICIANS = [
+  { id: 1, name: "김미영", birth: "720401", license: "조경기능사", regNo: "23404151790A" },
+  { id: 2, name: "김봉학", birth: "810609", license: "굴삭기운전기능사", regNo: "23812200006Y" },
+  { id: 3, name: "김성경", birth: "721101", license: "굴삭기운전기능사", regNo: "04404102525B" },
+];
