@@ -181,33 +181,34 @@ export default function Home() {
     setIsSubmitting(true);
 
     try {
-      const subject = encodeURIComponent(
-        `[무료 진단/문의] ${formData.companyName} (${formData.contactPerson})`
-      );
-      const body = encodeURIComponent(
-        [
-          "아래 내용으로 무료 진단/문의가 접수되었습니다.",
-          "",
-          `회사/기관명: ${formData.companyName}`,
-          `담당자명: ${formData.contactPerson}`,
-          `연락처: ${formData.phone}`,
-          `이메일: ${formData.email}`,
-          "",
-          `요청 공사 구분: ${formData.projectType || "-"}`,
-          `사면 경사도: ${formData.slopeAngle || "-"}`,
-          `예산 규모: ${formData.budget || "-"}`,
-          "",
-          "상세 내용:",
-          formData.details,
-          "",
-          `접수 경로: ${window.location.href}`,
-        ].join("\n")
-      );
+      const payload = {
+        _subject: `[무료 진단/문의] ${formData.companyName} (${formData.contactPerson})`,
+        "회사/기관명": formData.companyName,
+        "담당자명": formData.contactPerson,
+        "연락처": formData.phone,
+        "이메일": formData.email,
+        "요청 공사 구분": formData.projectType || "-",
+        "사면 경사도": formData.slopeAngle || "-",
+        "예산 규모": formData.budget || "-",
+        "상세 내용": formData.details,
+      };
 
-      // Client-side only: open the user's mail client prefilled to the target inbox.
-      window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
+      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_INFO.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-      toast.success("메일 작성 화면을 열었습니다. 전송을 눌러 제출을 완료해 주세요.");
+      const result = await response.json();
+
+      if (!response.ok || (result.success !== "true" && result.success !== true)) {
+        throw new Error(result.message || "서버 에러가 발생했습니다.");
+      }
+
+      toast.success("무료 진단 요청이 성공적으로 접수되었습니다. 빠르게 확인 후 연락드리겠습니다.");
       
       setStep(1);
       setFormData({
@@ -221,7 +222,7 @@ export default function Home() {
         details: "",
       });
     } catch (error) {
-      toast.error("에러가 발생했습니다.");
+      toast.error("전송에 실패했습니다. 다시 시도해 주세요.");
     } finally {
       setIsSubmitting(false);
     }
